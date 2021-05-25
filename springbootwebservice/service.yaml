@@ -1,0 +1,13 @@
+---
+apiVersion: serving.knative.dev/v1alpha1
+kind: Service
+metadata:
+  name: microserviceapp20210525
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+        - image: REGISTRY_URL/replace-me-namespace/microserviceapp20210525:BUILD_NUMBER
+          ports:
+            - containerPort: 8080
