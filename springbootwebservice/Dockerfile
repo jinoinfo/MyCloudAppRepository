@@ -9,6 +9,7 @@ RUN mvn -N io.takari:maven:wrapper -Dmaven=3.5.0
 RUN mvn -f pom.xml clean package -DskipTests
 RUN ./mvnw install
 
+
 FROM ibmjava:8-sfj
 LABEL maintainer="IBM Java Engineering at IBM Cloud"
 
