@@ -8,10 +8,11 @@ RUN apt-get update && apt-get install -y maven
 RUN mvn -N io.takari:maven:wrapper -Dmaven=3.5.0
 RUN ./mvnw install
 
+
 FROM ibmjava:8-sfj
 LABEL maintainer="IBM Java Engineering at IBM Cloud"
 
-COPY --from=builder /app/target/springbootwebservice-1.0-SNAPSHOT.jar /app.jar
+COPY --from=builder /app/target/springbootwebservice-0.0.1-SNAPSHOT.jar /app.jar
 
 ENV JAVA_OPTS=""
 ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]
